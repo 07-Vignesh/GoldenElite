@@ -314,18 +314,24 @@ function MentorMatchesContent() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const studentData = JSON.parse(searchParams.get("data"));
-
   useEffect(() => {
     async function fetchMatches() {
+      if (!searchParams || !searchParams.get("data")) {
+        setLoading(false);
+        return;
+      }
+
+      const studentData = JSON.parse(searchParams.get("data"));
       const res = await matchMentors(studentData);
       setResult(res);
       setLoading(false);
     }
     fetchMatches();
-  }, []);
+  }, [searchParams]);
 
   if (loading) return <GoldLoader />;
+
+  if (!result) return <GoldLoader />;
 
   return (
     <div style={styles.page}>
