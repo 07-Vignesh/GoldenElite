@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { matchMentors } from "@/actions/mentor-matching";
 import mentors from "@/data/mentors";
 import MentorCard from "@/components/ui/mentor-card";
@@ -302,6 +302,14 @@ function ScoreBar({ score }) {
 }
 
 export default function MentorMatchesPage() {
+  return (
+    <Suspense fallback={<GoldLoader />}>
+      <MentorMatchesContent />
+    </Suspense>
+  );
+}
+
+function MentorMatchesContent() {
   const searchParams = useSearchParams();
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
