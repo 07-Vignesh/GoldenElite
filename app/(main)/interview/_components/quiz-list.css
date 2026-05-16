@@ -1,0 +1,233 @@
+/* ═════════════════════════════════════════
+   QUIZ LIST
+   Append to globals.css
+═════════════════════════════════════════ */
+
+/* ── Outer card ── */
+.ql-card {
+  background: #0d0d14;
+  border: 1px solid var(--hp-border);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.ql-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--hp-gold), transparent 60%);
+}
+
+/* ── Header ── */
+.ql-header {
+  padding: 28px 28px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.ql-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ql-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hp-gold);
+}
+.ql-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--hp-gold);
+}
+.ql-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--hp-cream);
+}
+.ql-desc {
+  font-size: 0.8rem;
+  color: rgba(245, 240, 232, 0.38);
+  letter-spacing: 0.04em;
+}
+
+/* ── CTA button ── */
+.ql-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--hp-gold);
+  color: var(--hp-ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.25s, transform 0.2s;
+}
+.ql-btn:hover {
+  background: #e8d5a3;
+  transform: translateY(-1px);
+}
+
+/* ── Body ── */
+.ql-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Empty state ── */
+.ql-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 10px;
+  color: rgba(245, 240, 232, 0.22);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ql-empty-line {
+  width: 32px;
+  height: 1px;
+  background: var(--hp-border);
+}
+
+/* ── Quiz row card ── */
+.ql-row {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--hp-border);
+  border-radius: 2px;
+  padding: 20px 24px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.ql-row:hover {
+  background: rgba(201, 168, 76, 0.05);
+  border-color: rgba(201, 168, 76, 0.35);
+  transform: translateX(4px);
+}
+.ql-row::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--hp-gold);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+.ql-row:hover::after {
+  transform: scaleY(1);
+}
+
+/* ── Row top ── */
+.ql-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.ql-row-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--hp-cream);
+  letter-spacing: -0.01em;
+}
+.ql-row-date {
+  font-size: 0.7rem;
+  color: rgba(245, 240, 232, 0.32);
+  letter-spacing: 0.08em;
+}
+
+/* ── Row meta ── */
+.ql-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ql-score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hp-gold);
+  border: 1px solid var(--hp-border);
+  border-radius: 2px;
+  padding: 4px 10px;
+  background: rgba(201, 168, 76, 0.06);
+}
+.ql-score-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hp-gold);
+  flex-shrink: 0;
+}
+/* Colour by score */
+.ql-score-high   { color: #4ade80; border-color: rgba(74,222,128,0.2); background: rgba(74,222,128,0.06); }
+.ql-score-high .ql-score-dot   { background: #4ade80; }
+.ql-score-mid    { color: #facc15; border-color: rgba(250,204,21,0.2);  background: rgba(250,204,21,0.06); }
+.ql-score-mid .ql-score-dot    { background: #facc15; }
+.ql-score-low    { color: #f87171; border-color: rgba(248,113,113,0.2); background: rgba(248,113,113,0.06); }
+.ql-score-low .ql-score-dot    { background: #f87171; }
+
+.ql-tip {
+  font-size: 0.8rem;
+  color: rgba(245, 240, 232, 0.45);
+  line-height: 1.55;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--hp-border);
+}
+
+/* ── Dialog override ── */
+.ql-dialog-content {
+  background: #0d0d14 !important;
+  border: 1px solid var(--hp-border) !important;
+  border-radius: 2px !important;
+  max-width: 780px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.ql-dialog-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--hp-cream);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .ql-header { flex-direction: column; }
+  .ql-btn    { width: 100%; justify-content: center; }
+  .ql-row-top { flex-direction: column; align-items: flex-start; gap: 4px; }
+}

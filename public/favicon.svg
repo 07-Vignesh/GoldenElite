@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#0A0A0A"/>
+  <polygon points="16,1 28,8 28,24 16,31 4,24 4,8" fill="#C9A84C"/>
+  <polygon points="16,4.5 25.5,9.75 25.5,22.25 16,27.5 6.5,22.25 6.5,9.75" fill="#0A0A0A"/>
+  <polygon points="16,6.5 24,11 24,21 16,25.5 8,21 8,11" fill="#C9A84C"/>
+  <polygon points="16,8.5 22.5,12.25 22.5,19.75 16,23.5 9.5,19.75 9.5,12.25" fill="#111111"/>
+  <text x="16.5" y="22" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="14" fill="#C9A84C">G</text>
+</svg>

@@ -1,0 +1,134 @@
+/* ═════════════════════════════════════════
+   STATS CARDS
+   Append to globals.css
+═════════════════════════════════════════ */
+
+.sc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--hp-border);
+  border: 1px solid var(--hp-border);
+}
+
+/* ── Base card ── */
+.sc-card {
+  position: relative;
+  background: #0d0d14;
+  padding: 32px 28px 36px;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+.sc-card:hover {
+  background: rgba(201, 168, 76, 0.04);
+}
+
+/* ── Accent variant (first card) ── */
+.sc-card--accent {
+  background: rgba(201, 168, 76, 0.06);
+}
+.sc-card--accent::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--hp-gold), transparent 70%);
+}
+.sc-card--accent .sc-value {
+  color: var(--hp-gold);
+}
+
+/* ── Watermark number ── */
+.sc-watermark {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(201, 168, 76, 0.06);
+  pointer-events: none;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+/* ── Top row ── */
+.sc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sc-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.4);
+}
+
+.sc-icon-wrap {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--hp-border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 168, 76, 0.06);
+  flex-shrink: 0;
+  transition: border-color 0.25s, background 0.25s;
+}
+.sc-card:hover .sc-icon-wrap {
+  border-color: var(--hp-gold);
+  background: rgba(201, 168, 76, 0.12);
+}
+
+.sc-icon {
+  color: rgba(245, 240, 232, 0.45);
+  transition: color 0.25s;
+}
+.sc-card:hover .sc-icon {
+  color: var(--hp-gold);
+}
+
+/* ── Value ── */
+.sc-value {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--hp-cream);
+  margin-bottom: 8px;
+}
+
+/* ── Sub label ── */
+.sc-sub {
+  font-size: 0.72rem;
+  color: rgba(245, 240, 232, 0.32);
+  letter-spacing: 0.06em;
+}
+
+/* ── Bottom sweep line (animates on hover) ── */
+.sc-sweep {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--hp-gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.sc-card:hover .sc-sweep {
+  transform: scaleX(1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .sc-grid {
+    grid-template-columns: 1fr;
+  }
+}
