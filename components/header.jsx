@@ -22,6 +22,9 @@ const Header = () => {
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
         }
+          :root {
+  --logo-h: 56px;
+}
 
         /* top gold line */
         .header-root::before {
@@ -33,16 +36,15 @@ const Header = () => {
           z-index: 1;
         }
 
-        .header-nav {
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 0 20px;
-          height: 90px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 12px;
-        }
+       .header-nav {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 16px;
+       display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+}
 
         /* ── Logo ── */
         .header-logo {
@@ -186,38 +188,39 @@ const Header = () => {
         }
 
         /* ── Tablet (768px+): show text labels ── */
-        @media (min-width: 768px) {
-          .header-nav { padding: 0 28px; height: 72px; gap: 16px; }
-          .btn-insight-desktop { display: inline-flex; }
-          .btn-insight-mobile { display: none; }
-          .btn-growth { padding: 9px 18px; font-size: 13px; }
-          .btn-growth-label { display: inline; }
-          .header-actions { gap: 10px; }
-        }
+       @media (min-width: 768px) {
+  :root { --logo-h: 80px; }
+  .header-nav { padding: 0 28px; height: 80px; gap: 16px; }
+  .btn-insight-desktop { display: inline-flex; }
+  .btn-insight-mobile { display: none; }
+  .btn-growth { padding: 9px 18px; font-size: 13px; }
+  .btn-growth-label { display: inline; }
+  .header-actions { gap: 10px; }
+}
 
-        /* ── Desktop (1024px+) ── */
-        @media (min-width: 1024px) {
-          .header-nav { padding: 0 40px; }
-          .btn-growth { padding: 10px 22px; }
-          .btn-insight-desktop { padding: 9px 20px; }
-        }
+/* Desktop */
+@media (min-width: 1024px) {
+  :root { --logo-h: 110px; }
+  .header-nav { padding: 0 40px; height: 90px; }
+  .btn-growth { padding: 10px 22px; }
+  .btn-insight-desktop { padding: 9px 20px; }
+}
       `}</style>
 
       <header className="header-root">
         <nav className="header-nav">
 
           {/* Logo */}
-          <Link href="/" className="header-logo">
+      <Link href="/" className="header-logo">
   <Image
     src="/GoldenElitelogo.png"
     alt="GoldenElite AI Logo"
     width={400}
     height={350}
-    style={{ height: '110px', width: 'auto', objectFit: 'contain' }}
+    style={{ height: 'var(--logo-h)', width: 'auto', objectFit: 'contain' }}
     priority
   />
 </Link>
-
           {/* Right Actions */}
           <div className="header-actions">
             <SignedIn>
